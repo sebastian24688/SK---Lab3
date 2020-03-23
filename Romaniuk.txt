@@ -1,0 +1,80 @@
+############ Budowa sieci z wykorzystaniem przełącznika i routera ###################
+
+ZADANIE 2
+Krok 1
+c) Dlaczego nie udało się połączyć z drugim komputerem?
+	Komputery znajdują się w innych sieciach podsieciach.
+Krok 2
+n) Czy udało się nawiązać łączność? Dlaczego?
+	Udało się nawiązać łączność międziy komputerami dzięki routerowi, który połączył dwie różne podsieci.  
+
+ZADANIE 3
+Krok 1
+a) Jaka jest nazwa obrazu system IOS, z którego korzysta router?
+	Cisco IOS Software, C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M4
+   Jak dużą pamięć DRAM posiada router?
+	64 bytes
+   Jak dużą pamięć NVRAM posiada router?
+	255K bytes
+   Jak dużą pamięć Flash posiada router?
+	249856K bytes
+
+b) Jaka jest nazwa obrazu system IOS, z którego korzysta przełącznik?
+	Cisco IOS Software, C2960 Software (C2960-LANBASE-M), Version 12.2(25)FX
+   Jak dużą pamięć DRAM posiada?
+	brak informacji
+   Jak dużą pamięć NVRAM posiada?
+	63488K bytes
+   Jak dużą pamięć Flash posiada?
+	63488K bytes
+   Jaki jest numer modelu tego przełącznika?
+	WS-C2960-24TT
+Krok 2 
+   Jaką literką oznaczono sieci połączone bezpośrednio? C
+   Ile tras oznaczono literką C w tablicy routingu? 2
+   Które interfejsy są przypisane do tras bezpośrednich? GigabitEthernet0/0, GigabitEthernet0/1
+Krok 3
+   Jaki jest stan interfejsu G0/1 ?
+	up - aktywny
+   Jaki jest adres MAC (Media Access Control) interfejsu G0/1?
+	00d0.58a2.9402
+   W jakiej postaci jest zapisany adres IP?
+	Adres ip jest zapisany w postaci dziesiętnej ( składa się z 4 oktetów ) wraz z maską.
+
+Do przemyślenia
+1. Jeśli interfejs G0/1 jest nieczynny (wyświetlany jest jako administratively down), to jakiego polecenia należy użyć aby go włączyć?
+	no shutdown
+2. Co by się stało, jeśli nieprawidłowo skonfigurowałbyś interfejs routera G0/1 przypisując mu adres
+192.168.1.2?
+	Prawdopodobnie nie nastąpiłyby żadne problemy, ponieważ PC-A posiada inny adres IP.
+	Edit.: Przetestowane, działa. 	
+
+
+################  Sprawdzanie łączności narzędziami Ping i Traceroute ####################
+
+CZĘŚĆ 2
+
+Krok 1 
+b)
+192.168.1.1 (LOCAL)	0	255
+192.168.1.11 (S1)	0	255
+10.1.1.1 (LOCAL)	0	255
+10.1.1.2 (ISP)		3	254
+10.2.2.2 (ISP)		3	254
+10.2.2.1 (REMOTE)	7	253
+192.168.3.1 (REMOTE)	4	253
+192.168.3.11 (S3)	8	252
+192.168.3.3 (PC-C)	7	125
+
+
+Do przemyślenia
+1. Co oprócz problemów z łącznością w sieci może uniemożliwić dotarcie odpowiedzi na ping lub traceroute do hosta źródłowego?
+	Brak zasilania, uszkodzone media transmisyjne, zapora ogniowa (firewall)
+
+2. Jaki komunikat jest wyświetlany przez polecenie ping jeśli pingujesz nieistniejący adres w sieci zdalnej, np. 192.168.3.4,? Co to oznacza? Co należy sprawdzić jeśli otrzymasz taką samą odpowiedź pingując poprawny adres hosta?
+	Wyświetlany jest komunikat o przekroczeniu czasu oczekiwania na odpowiedź. Oznacza to, że dany adres nie istnieje w sieci lub jest źle skonfigurowana sieć. Należy sprawdzić trasę pomiędzy hostami, pingując po kolei każde urządenie pośredniczące.
+
+3. Jakie jest komunikat wyświetlany przez polecenie ping jeśli z komputera z systemem Windows pingujesz
+adres, który nie istnieje w żadnej sieci w topologii, np. 192.168.5.3? Co ten komunikat wskazuje?
+	To samo co powyżej.
+
